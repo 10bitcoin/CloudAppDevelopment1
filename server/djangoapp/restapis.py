@@ -154,14 +154,22 @@ def get_dealer_reviews_from_cf(url, dealer_id):
 # Calls the Watson NLU API and analyses the sentiment of a review
 def analyze_review_sentiments(review_text):
     # Watson NLU configuration
-    try:
-        if os.environ['env_type'] == 'PRODUCTION':
-            url = os.environ['WATSON_NLU_URL']
-            api_key = os.environ["WATSON_NLU_API_KEY"]
-    except KeyError:
-        url = config('WATSON_NLU_URL')
-        api_key = config('WATSON_NLU_API_KEY')
+    #try:
+    #    if os.environ['env_type'] == 'PRODUCTION':
+    #        url = os.environ['WATSON_NLU_URL']
+    #        api_key = os.environ["WATSON_NLU_API_KEY"]
+    #except KeyError:
+    #    url = config('WATSON_NLU_URL')
+    #    api_key = config('WATSON_NLU_API_KEY')
 
+    #version = '2021-08-01'
+    #authenticator = IAMAuthenticator(api_key)
+    #nlu = NaturalLanguageUnderstandingV1(
+    #    version=version, authenticator=authenticator)
+    #nlu.set_service_url(url)
+    url = "https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/dcbe40c8-8be3-4be3-b4c9-51c7b502916b"
+    api_key = "Dn1mJUGrVj7DbvRZ3Idbq2oCD0REqcHE0dBOTmmw0jGt"
+ 
     version = '2021-08-01'
     authenticator = IAMAuthenticator(api_key)
     nlu = NaturalLanguageUnderstandingV1(
